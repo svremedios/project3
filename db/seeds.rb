@@ -4,7 +4,7 @@ directors = ["Ron Howard", "Paul Greengrass", "Rian Johnson", "Robert Zemeckis",
               "James Gunn", "Colin Trevorrow", "Bennett Miller",
               "Steven Spielberg", "J.J. Abrams", "Clint Eastwood"]
 
-directors.each do |director|
+for director in directors
   Director.create name: director
 end
 
@@ -119,7 +119,7 @@ movies = [
 ]
 
 
-movies.each do |movie_data|
+for movie_data in movies
   m = Movie.new
   m.title = movie_data["title"]
   m.plot = movie_data["plot"]
@@ -144,7 +144,8 @@ director_credits = {"Captain Phillips" => "Paul Greengrass",
 "Cast Away" => "Robert Zemeckis",
 "Guardians of the Galaxy" => "James Gunn"}
 
-director_credits.each do |movie_title, director_name|
+for movie_title in director_credits.keys
+  director_name = director_credits[movie_title]
   the_movie = Movie.find_by(title: movie_title)
   the_director = Director.find_by(name: director_name)
 
@@ -157,3 +158,6 @@ director_credits.each do |movie_title, director_name|
   the_movie.director_id = the_director.id
   the_movie.save
 end
+
+print "There are now #{Movie.count} movies.\n"
+print "There are now #{Director.count} directors.\n"
