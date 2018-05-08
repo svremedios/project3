@@ -1,0 +1,62 @@
+Movie
+  title: text
+  year: integer
+  poster_url: text
+  plot: text
+  mpaa: text
+  runtime: integer
+  director_id: integer
+  votes: integer(0)
+
+Director
+  name: text
+
+Review
+  rating: integer
+  content: text
+  movie_id: integer
+
+Actor
+  name: text
+  photo_url: text
+
+Character
+  name: text
+  movie_id: integer
+  actor_id: integer
+
+# Example:
+#
+# Book
+#   title: text
+#   author_id: integer
+#   summary: text
+#   price: integer
+#   hardcover: boolean
+#
+#
+# Indent consistently!  Follow the above syntax exactly.
+#
+#
+#
+# Column choices are: text, integer, boolean, datetime, and float.
+#
+#
+# Default values can be specified like this:
+#
+#    price: integer(0)
+#
+# If not specified, Boolean columns always default to false.
+#
+# You can omit the column type if it's a text column or obviously an integer column:
+#
+# Book
+#   title
+#   author_id
+#   summary
+#   price: integer
+#   hardcover: boolean
+#
+# Complete details are in the README file online.
+#
+# Have fun!

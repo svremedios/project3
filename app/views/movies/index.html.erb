@@ -1,0 +1,19 @@
+<div class="row justify-content-center">
+
+    <% for movie in Movie.all.order("votes desc") %>
+
+      <div class="col-sm-2 m-4">
+
+        <a href="/movies/<%= movie.id %>">
+
+        <% if movie.poster_url.blank? %>
+          <% movie.poster_url = "/blank_poster.png" %>
+        <% end %>
+
+        <img src="<%= movie.poster_url %>" class="movie-poster img-fluid">
+
+      </div>
+
+    <% end %>
+
+</div>

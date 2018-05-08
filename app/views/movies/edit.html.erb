@@ -1,0 +1,22 @@
+<% movie = Movie.find_by(id: params["id"]) %>
+
+<h1>Editing Movie #<%= movie.id %></h1>
+
+<form action="/movies/#{movie.id}" class='col-sm-5'>
+
+  <p class="form-group">Title: <input class="form-control" value="<%= movie.title %>" type="text" name="title" placeholder="Enter a title..."></p>
+  <p class="form-group">Year: <input class="form-control" value="<%= movie.year %>" type="text" name="year" placeholder="Enter a year..."></p>
+  <p class="form-group">Poster URL:<input class="form-control" value="<%= movie.poster_url %>" type="text" name="poster_url" placeholder="Enter a poster..."></p>
+
+  <p class="form-group">Director ID:
+      <select class="form-control" name="director_id">
+        <% for director in Director.all %>
+          <option value="<%= director.id %>"><%= director.name %></option>
+        <% end %>
+
+      </select>
+  </p>
+
+  <button class="btn btn-primary">Update Movie</button>
+
+</form>

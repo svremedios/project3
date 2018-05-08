@@ -1,0 +1,42 @@
+<% movie_id = params[:id] %>
+<% movie = Movie.find_by(id: movie_id) %>
+
+<div class="row">
+
+  <div class="col-sm-6">
+    <h2>
+      <%= movie.title %>
+    </h2>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-sm-3">
+    <img src="<%= movie.poster_url %>" class="img-fluid">
+
+  </div>
+
+  <div class="col-sm-6">
+    <a href="/movies/<%= movie.id %>/delete" class="float-right">
+      <i class="fas fa-trash"></i>
+      Delete
+    </a>
+    <a href="/movies/<%= movie.id %>/edit" class="pr-5 float-right">
+      <i class="fas fa-pen-square"></i>
+      Edit This Movie
+    </a>
+
+    <% director = Director.find_by(id: movie.director_id) %>
+    <% if director != nil %>
+      <p>
+        Directed by <%= director.name %>
+      </p>
+    <% end %>
+
+    <p class="lead">
+      <strong><%= movie.plot %></strong>
+    </p>
+  </div>
+</div>
